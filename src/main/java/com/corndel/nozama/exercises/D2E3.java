@@ -28,12 +28,16 @@ public class D2E3 {
     app.get(
         "/alarms",
         ctx -> {
-          // TODO
+          var alarms = AlarmRepository.findAll();
+          ctx.json(alarms);
         });
 
     app.get(
         "/alarms/{id}",
         ctx -> {
+          var id = Integer.parseInt(ctx.pathParam("id"));
+          var alarm = AlarmRepository.findById(id);
+          ctx.json(alarm);
           // TODO
         });
 
@@ -41,6 +45,12 @@ public class D2E3 {
         "/alarms",
         ctx -> {
           // TODO
+          //record UserRequest(String time, String message) {}
+          Alarm body = ctx.bodyAsClass(Alarm.class);
+          Alarm alarm = AlarmRepository.create(body.getTime(),body.getMessage());
+          ctx.status(201);
+          ctx.json(alarm);
+
         });
 
     return app;
