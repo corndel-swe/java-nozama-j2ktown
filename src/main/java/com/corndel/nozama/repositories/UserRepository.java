@@ -58,4 +58,20 @@ public class UserRepository {
       }
     }
   }
+
+
+  public static User createUser(User user){
+
+    // get user details
+    String username = user.getUsername();
+    String firstName = user.getFirstName();
+    String lastName = user.getLastName();
+    String email = user.getEmail();
+    String avatar = user.getAvatar();
+    return user;
+
+
+
+
+  }
 }
