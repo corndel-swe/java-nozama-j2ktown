@@ -1,5 +1,6 @@
 package com.corndel.nozama;
 
+import com.corndel.nozama.exercises.D2E1;
 import com.corndel.nozama.repositories.UserRepository;
 import io.javalin.Javalin;
 import io.javalin.http.HttpStatus;

@@ -21,12 +21,30 @@ public class D2E2 {
         "/sumup",
         ctx -> {
           // TODO:
+
+            if ((ctx.queryParam("n") == null)){
+                ctx.result("0");
+                return;
+            }
+
+            int n = Integer.parseInt(ctx.queryParam("n"));
+
+            int total = 0;
+            for (int i = 1; i <= n ; i++) {
+                total += i;
+            }
+
+            ctx.json(Integer.toString(total));
         });
 
     app.get(
         "/multiply/{x}/{y}",
         ctx -> {
           // TODO
+            var x = Integer.parseInt(ctx.pathParam("x"));
+            var y = Integer.parseInt(ctx.pathParam("y"));
+            var result = Integer.toString(x * y);
+            ctx.json(result);
         });
 
     return app;
