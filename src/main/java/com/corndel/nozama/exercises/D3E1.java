@@ -3,6 +3,11 @@ package com.corndel.nozama.exercises;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
+import java.util.List;
+
+
+import static com.corndel.nozama.exercises.D3E1.counter;
+
 public class D3E1 {
   // This is our counter:
   public static Counter counter = new Counter();
@@ -26,7 +31,9 @@ class CounterController {
    * Responds with the current counter as a JSON object, e.g. { "count": 3 }.
    */
   public static void getCounter(Context ctx) {
+
     // TODO
+    ctx.json(counter);
   }
 
   /**
@@ -34,6 +41,8 @@ class CounterController {
    */
   public static void increment(Context ctx) {
     // TODO
+    counter.setCount(counter.getCount() + 1);
+    ctx.json(counter);
   }
 }
 
